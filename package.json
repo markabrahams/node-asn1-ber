@@ -1,0 +1,30 @@
+{
+  "name": "asn1-ber",
+  "version": "1.0.0",
+  "description": "Generate and parse ASN.1 BER objects",
+  "main": "index.js",
+  "directories": {},
+  "dependencies": {},
+  "devDependencies": {
+    "tap": "*"
+  },
+  "contributors": [ 
+    {
+      "name": "Stephen Vickers",
+      "email": "stephen.vickers.sv@gmail.com"
+    } 
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/stephenwvickers/node-asn1-ber.git"
+  },
+  "keywords": [
+    "asn1",
+    "ber",
+    "asn1ber",
+    "asn1.ber",
+    "asn1-ber"
+  ],
+  "author": "Stephen Vickers <stephen.vickers.sv@gmail.com>",
+  "license": "MIT"
+}
