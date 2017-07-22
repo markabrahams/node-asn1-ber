@@ -88,7 +88,34 @@ The following constants are defined in this object:
 
 # Using This Module
 
+This module exposes two interfaces, one for reading ASN1.BER objects from
+Node.js `Buffer` object instances, and another for writing ASN1.BER objects to
+Node.js `Buffer` instances.
+
+These two interfaces, and all their functions and methods, are documented in
+seperate sections below.
+
 ## Writing Objects
+
+### Introduction
+
+ASN1.BER objects can be generated programatically using various methods.  An
+instance of the `BerWriter` object is instantiated and its methods used to do
+this.  Once an object is complete the associated Node.js `Buffer` object
+instance can be obtained by accessing the `buffer` attribute of the `BerWriter`
+object instance.
+
+In the following example a simple sequence of two boolean objects is written,
+then the `Buffer` instance obtained:
+
+	var writer = new asn1.BerWriter()
+
+	writer.startSequence()
+	writer.writeBoolean(true, asn1.Ber.Boolean)
+	writer.writeBoolean(false, asn1.Ber.Boolean)
+	writer.endSequence()
+
+	var buffer = writer.buffer
 
 ### new asn1.BerWriter([options])
 
