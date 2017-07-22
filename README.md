@@ -1,7 +1,7 @@
 
 # asn1-ber
 
-This module provides the ability to generate and parse ASN.1 BER objects.
+This module provides the ability to generate and parse ASN1.BER objects.
 
 This module is installed using [node package manager (npm)][npm]:
 
@@ -491,9 +491,9 @@ instance:
 
 # License
 
-Copyright (c) 2011 Mark Cavage <mcavage@gmail.com>
-
 Copyright (c) 2017 Stephen Vickers <stephen.vickers.sv@gmail.com>
+
+Copyright (c) 2011 Mark Cavage <mcavage@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
