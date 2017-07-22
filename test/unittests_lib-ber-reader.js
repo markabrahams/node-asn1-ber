@@ -6,7 +6,7 @@ var BerReader = asn1.BerReader
 
 describe("lib/ber/reader.js", function() {
 	describe("readByte()", function() {
-		it("returns the next byte", function() {
+		it("can read a value", function() {
 			var reader = new BerReader(new Buffer([0xde]))
 			assert.equal(reader.readByte(), 0xde)
 		})
@@ -120,8 +120,8 @@ describe("lib/ber/reader.js", function() {
 		})
 	})
 
-	describe("complex sequence", function() {
-		it("is processed correctly", function() {
+	describe("complex sequences", function() {
+		it("are processed correctly", function() {
 			var buffer = new Buffer(14);
 
 			// An anonymous LDAP v3 BIND request
@@ -156,7 +156,7 @@ describe("lib/ber/reader.js", function() {
 	})
 
 	describe("long strings", function() {
-		it("are parsed", function() {
+		it("can be parsed", function() {
 			var buffer = new Buffer(256)
 			var string = "2;649;CN=Red Hat CS 71GA Demo,O=Red Hat CS 71GA Demo,C=US;"
 					+ "CN=RHCS Agent - admin01,UID=admin01,O=redhat,C=US [1] This is "
