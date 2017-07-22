@@ -155,6 +155,16 @@ items:
    with a `size` of `1024` and a `growthFactor` of `8` when the `Buffer`
    instance becomes full the new size would be calculated as `8192`
 
+### writer.buffer
+
+Once an object is complete the Node.js `Buffer` instance can be obtained via the
+writes `buffer` attribute, e.g.:
+
+	var buffer = writer.buffer
+
+The `Buffer` instance returned will be a copy of the internal instance used by
+the writer and can be safely modified once obtained.
+
 ### writer.startSequence([tag]) & writer.endSequence()
 
 The `startSequence()` method starts a new sequence.  This method can be called
