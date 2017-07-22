@@ -3,6 +3,15 @@
 
 This module provides the ability to generate and parse ASN1.BER objects.
 
+**NOTE This project is a clone (not a fork) of the [asn1][asn1] project, and
+as such is a drop in replacement.  The [asn1][asn1] project has received little
+attention over the past few years and is used in a number of heavily dependant
+modules (one being my own [net-snmp][net-snmp] module), so I have committed to
+maintaining this clone, and for it to be a drop in replacement.**
+
+[asn1]: https://github.com/mcavage/node-asn1
+[net-snmp]: https://github.com/stephenwvickers/node-net-snmp
+
 This module is installed using [node package manager (npm)][npm]:
 
     npm install asn1-ber
@@ -492,11 +501,31 @@ instance:
 
 # Changes
 
-## Version 1.0.0 - 03/02/2013
+## Version 1.0.0 - 22/07/2017
 
- * Initial release (clone of the [asn1][asn1] repository)
+ * Negative numbers are read when unsigned integers should be used in some
+   places
+ * The `tag` parameter to the `Writer.writeBuffer()` method in
+   `lib/ber/writer.js` should be optional so that pre-formatted buffers can be
+   written that already include a tag and length
+ * The `license` attribute is missing from `package.json`
+ * Create `.npmignore` file
+ * Correct names of error classes imported and used in `lib/ber/writer.js`
+   which result in `not defined` error messages
+ * Remove `require(sys)` statement from `tst/ber/writer.test.js` because it is
+   no longer supported or required
+ * Boolean logic error using `instanceof` in the `writeStringArray()` method in
+   `lib/ber/writer.js`
+ * Improve documentation
+ * Migrate tests to the mocha framework
+ * The `tag` parameter should be optional for methods which imply a type
+ * Sort out indentation and use tabs
 
-[asn1]: https://github.com/mcavage/node-asn1
+## Version 
+
+# Roadmap
+
+Suggestions and requirements should be sent to <stephen.vickers.sv@gmail.com>.
 
 # License
 
