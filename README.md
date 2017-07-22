@@ -195,7 +195,7 @@ bytes, i.e. it will interpret it in any way.
 
 The `buffer` parameter is an instance of the Node.js `Buffer` class.  The
 optional `tag` parameter is one of the constants defined in the `asn1.Ber`
-object, or a number if the required type is not pre-defined.  If not tag is
+object, or a number if the required type is not pre-defined.  If no tag is
 specified then `buffer` is assumed to already contain the tag and length for
 the object to be written, i.e. it is assumed to contain a pre-formatted
 ASN1.BER object such as a sequence, and will be inserted as is with no tag or
