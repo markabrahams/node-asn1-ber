@@ -27,7 +27,6 @@ A reader or writer can then be created to read or write objects:
 	var reader = new asn1.BerReader(buffer)
 
 	reader.readSequence()
-
 	reader.readBoolean() // first boolean is true
 	reader.readBoolean() // second boolean is false
 
