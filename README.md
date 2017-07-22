@@ -1,21 +1,4 @@
 
-This is a fork of the [node-asn1][node-asn1] project.  There has been little
-work on that project over the years and there are a number of outstanding
-issues and pull requests.
-
-This fork attempts to address those issues and pull requests.
-
-Please refer to the original project for documentation until this file is
-updated.
-
-[node-asn1]: https://github.com/mcavage/node-asn1
-
-
-
-
-
-
-
 # asn1-ber
 
 This module provides the ability to generate and parse ASN.1 BER objects.
@@ -30,11 +13,23 @@ It is loaded using the `require()` function:
 
 A reader or writer can then be created to read or write objects:
 
+	// Let's create an ASN1.BER object using the writing interface:
+	var writer = new asn1.BerWriter()
 
+	writer.startSequence()
+	writer.writeBoolean(true)
+	writer.writeBoolean(false)
+	writer.endSequence()
 
-**TODO Write some more examples here**
+	var buffer = writer.buffer
 
+	// Now let's read the data back from the buffer:
+	var reader = new asn1.BerReader(buffer)
 
+	reader.readSequence()
+
+	reader.readBoolean() // first boolean is true
+	reader.readBoolean() // second boolean is false
 
 It is assumed that users are somewhat familiar with ASN1 and BER encoding.
 
