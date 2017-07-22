@@ -1,8 +1,6 @@
 
 # asn1-ber
 
-This module provides the ability to generate and parse ASN1.BER objects.
-
 **NOTE This project is a clone (not a fork) of the [asn1][asn1] project, and
 as such is a drop in replacement.  The [asn1][asn1] project has received little
 attention over the past few years and is used in a number of heavily dependant
@@ -11,6 +9,8 @@ maintaining this clone, and for it to be a drop in replacement.**
 
 [asn1]: https://github.com/mcavage/node-asn1
 [net-snmp]: https://github.com/stephenwvickers/node-net-snmp
+
+This module provides the ability to generate and parse ASN1.BER objects.
 
 This module is installed using [node package manager (npm)][npm]:
 
