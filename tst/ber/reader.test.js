@@ -131,6 +131,14 @@ test('read enumeration', function(t) {
 });
 
 
+test('read oid', function(t) {
+  var buffer = new Buffer([6, 18, 43, 6, 1, 4, 1, 245, 12, 1, 1, 5, 1, 1, 19, 138, 224, 215, 210, 120])
+  var reader = new BerReader(buffer)
+  t.equal(reader.readOID(), "1.3.6.1.4.1.14988.1.1.5.1.1.19.2887117176")
+  t.end()
+})
+
+
 test('read string', function(t) {
   var dn = 'cn=foo,ou=unit,o=test';
   var buf = new Buffer(dn.length + 2);
