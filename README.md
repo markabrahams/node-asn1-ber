@@ -521,7 +521,16 @@ instance:
  * The `tag` parameter should be optional for methods which imply a type
  * Sort out indentation and use tabs
 
-## Version 
+## Version 1.0.1 - 22/07/2017
+
+ * Minor changes to the README.md file
+
+## Version 1.0.2 - 01/02/2018
+
+ * The lib/ber/reader.js/Reader.prototype.readInt() method always uses the tag
+   type ASN1.Integer
+ * The lib/ber/reader.js/Reader.prototype.readEnumeration() method always uses
+   the tag type ASN1.Enumeration
 
 # Roadmap
 
