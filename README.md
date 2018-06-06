@@ -536,6 +536,10 @@ instance:
 
  * Added NoSpaceships Ltd as a maintainer
 
+# Version 1.0.5 - 06/06/2018
+
+ * Transfer to NoSpaceships github account
+
 # Roadmap
 
 Suggestions and requirements should be sent to <hello@nospaceships.com>.

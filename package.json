@@ -1,6 +1,6 @@
 {
   "name": "asn1-ber",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Generate and parse ASN1.BER objects",
   "main": "index.js",
   "directories": {},
@@ -20,7 +20,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git://github.com/stephenwvickers/node-asn1-ber.git"
+    "url": "git://github.com/nospaceships/node-asn1-ber.git"
   },
   "keywords": [
     "asn1",
