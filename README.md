@@ -532,6 +532,10 @@ instance:
  * The lib/ber/reader.js/Reader.prototype.readEnumeration() method always uses
    the tag type ASN1.Enumeration
 
+# Version 1.0.3 - 06/06/2018
+
+ * Added NoSpaceships Ltd as a maintainer
+
 # Roadmap
 
 Suggestions and requirements should be sent to <stephen.vickers.sv@gmail.com>.

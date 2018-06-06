@@ -1,6 +1,6 @@
 {
   "name": "asn1-ber",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Generate and parse ASN1.BER objects",
   "main": "index.js",
   "directories": {},
@@ -12,7 +12,11 @@
     {
       "name": "Stephen Vickers",
       "email": "stephen.vickers.sv@gmail.com"
-    } 
+    },
+    {
+      "name": "NoSpaceships",
+      "email": "hello@nospaceships.com"
+    }
   ],
   "repository": {
     "type": "git",
