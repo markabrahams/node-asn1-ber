@@ -536,7 +536,7 @@ instance:
 
  * Added NoSpaceships Ltd as a maintainer
 
-# Version 1.0.5 - 06/06/2018
+# Version 1.0.6 - 06/06/2018
 
  * Transfer to NoSpaceships github account
 
@@ -546,7 +546,9 @@ Suggestions and requirements should be sent to <hello@nospaceships.com>.
 
 # License
 
-Copyright (c) 2017 Stephen Vickers <stephen.vickers@nospaceships.com>
+Copyright (c) 2018 NoSpaceships Ltd <hello@nospaceships.com>
+
+Copyright (c) 2017 Stephen Vickers <stephen.vickers.sv@gmail.com>
 
 Copyright (c) 2011 Mark Cavage <mcavage@gmail.com>
 
