@@ -538,11 +538,11 @@ instance:
 
 # Roadmap
 
-Suggestions and requirements should be sent to <stephen.vickers.sv@gmail.com>.
+Suggestions and requirements should be sent to <hello@nospaceships.com>.
 
 # License
 
-Copyright (c) 2017 Stephen Vickers <stephen.vickers.sv@gmail.com>
+Copyright (c) 2017 Stephen Vickers <stephen.vickers@nospaceships.com>
 
 Copyright (c) 2011 Mark Cavage <mcavage@gmail.com>
 
