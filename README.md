@@ -540,6 +540,10 @@ instance:
 
  * Transfer to NoSpaceships github account
 
+# Version 1.0.7 - 06/06/2018
+
+ * Update author to NoSpaceships
+
 # Roadmap
 
 Suggestions and requirements should be sent to <hello@nospaceships.com>.

@@ -1,6 +1,6 @@
 {
   "name": "asn1-ber",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Generate and parse ASN1.BER objects",
   "main": "index.js",
   "directories": {},
@@ -30,6 +30,6 @@
     "asn1.ber",
     "asn1-ber"
   ],
-  "author": "Stephen Vickers <stephen.vickers@nospaceships.com>",
+  "author": "NoSpaceships Ltd <hello@nospaceships.com>",
   "license": "MIT"
 }
