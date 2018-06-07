@@ -544,10 +544,6 @@ instance:
 
  * Update author to NoSpaceships
 
-# Roadmap
-
-Suggestions and requirements should be sent to <hello@nospaceships.com>.
-
 # License
 
 Copyright (c) 2018 NoSpaceships Ltd <hello@nospaceships.com>
