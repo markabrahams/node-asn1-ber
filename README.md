@@ -544,6 +544,10 @@ instance:
 
  * Update author to NoSpaceships
 
+# Version 1.0.8 - 07/06/2018
+
+ * Remove redundant sections from README.md
+
 # License
 
 Copyright (c) 2018 NoSpaceships Ltd <hello@nospaceships.com>
