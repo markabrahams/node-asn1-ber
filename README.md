@@ -548,7 +548,13 @@ instance:
 
  * Remove redundant sections from README.md
 
+## Version 1.1.0 - 08/06/2018
+
+ * Change author and add write support for short OIDs
+
 # License
+
+Copyright (c) 2020 Mark Abrahams <mark@abrahams.co.nz>
 
 Copyright (c) 2018 NoSpaceships Ltd <hello@nospaceships.com>
 
