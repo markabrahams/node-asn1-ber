@@ -164,7 +164,7 @@ describe("lib/ber/writer.js", function() {
 			var writer = new BerWriter()
 			writer.writeString("hello world")
 
-			var expected = new Buffer([
+			var expected = Buffer.alloc([
 					0x04, 0x0b, 0x30, 0x09, 0x02, 0x01, 0x0f, 0x01,
 					0x01, 0xff, 0x01, 0x01, 0xff
 				])

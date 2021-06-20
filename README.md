@@ -126,7 +126,7 @@ then the `Buffer` instance obtained:
 
 The resulting buffer will contain the following:
 
-	var buffer = new Buffer([
+	var buffer = Buffer.alloc([
 			asn1.Ber.Sequence | asn1.Ber.Constructor,
 			6, // length of the data contained within the sequence
 			asn1.Ber.Boolean,
@@ -224,10 +224,10 @@ The following two examples write a single byte in different ways.  One provides
 a tag, in which case `writeBuffer()` will write the tag and length, and in the
 other no tag is provided, so `writeBuffer()` will NOT write a tag or length:
 
-	var b1 = new Buffer([0x01])
+	var b1 = Buffer.alloc([0x01])
 	writer.writeBuffer(b1, asn1.Ber.Integer)
 
-	var b2 = new Buffer([asn1.Ber.Integer, 0x01, 0x01])
+	var b2 = Buffer.alloc([asn1.Ber.Integer, 0x01, 0x01])
 	writer.writeBuffer(b2)
 
 ### writer.writeByte(byte)
@@ -347,7 +347,7 @@ incremented based on the amount of data read per method call.
 In the following example the appropriate methods are used to read a buffer
 containing an ASN1.BER object:
 
-	var buffer = new Buffer([
+	var buffer = Buffer.alloc([
 			asn1.Ber.Sequence | asn1.Ber.Constructor,
 			6, // length of the data contained within the sequence
 			asn1.Ber.Boolean,
@@ -551,6 +551,10 @@ instance:
 ## Version 1.1.0 - 08/06/2018
 
  * Change author and add write support for short OIDs
+
+## Version 1.1.1 - 20/06/2021
+
+ * Update buffer allocation to supported Buffer.alloc calls
 
 # License
 
