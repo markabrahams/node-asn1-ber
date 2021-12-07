@@ -556,6 +556,10 @@ instance:
 
  * Update buffer allocation to supported Buffer.alloc calls
 
+## Version 1.1.2 - 08/12/2021
+
+ * Fix zero-length octet string buffer writing
+
 # License
 
 Copyright (c) 2020 Mark Abrahams <mark@abrahams.co.nz>
