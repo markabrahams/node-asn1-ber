@@ -13,54 +13,172 @@ describe("lib/ber/reader.js", function() {
 	})
 
 	describe("readInt()", function() {
-		it("can read a 1 byte integer", function() {
-			var reader = new BerReader(Buffer.from([0x02, 0x01, 0x03]))
-			assert.equal(reader.readInt(), 0x03)
-			assert.equal(reader.length, 0x01)
+		it("can read zero", function() {
+			var reader = new BerReader(Buffer.from([0x02, 0x01, 0x00]))
+			assert.equal(reader.readInt(), 0)
+			assert.equal(reader.length, 1)
 		})
 
-		it("can read a 2 byte integer", function() {
+		it("can read a 1 byte positive integer - lowest", function() {
+			var reader = new BerReader(Buffer.from([0x02, 0x01, 0x01]))
+			assert.equal(reader.readInt(), 1)
+			assert.equal(reader.length, 1)
+		})
+
+		it("can read a 1 byte positive integer - middle", function() {
+			var reader = new BerReader(Buffer.from([0x02, 0x01, 0x34]))
+			assert.equal(reader.readInt(), 52)
+			assert.equal(reader.length, 1)
+		})
+
+		it("can read a 1 byte positive integer - highest", function() {
+			var reader = new BerReader(Buffer.from([0x02, 0x01, 0x7f]))
+			assert.equal(reader.readInt(), 127)
+			assert.equal(reader.length, 1)
+		})
+
+		it("can read a 2 byte positive integer - lowest", function() {
+			var reader = new BerReader(Buffer.from([0x02, 0x02, 0x00, 0x80]))
+			assert.equal(reader.readInt(), 128)
+			assert.equal(reader.length, 2)
+		})
+
+		it("can read a 2 byte positive integer - middle", function() {
 			var reader = new BerReader(Buffer.from([0x02, 0x02, 0x7e, 0xde]))
 			assert.equal(reader.readInt(), 0x7ede)
-			assert.equal(reader.length, 0x02)
+			assert.equal(reader.length, 2)
 		})
 
-		it("can read a 3 byte integer", function() {
+		it("can read a 2 byte positive integer - highest", function() {
+			var reader = new BerReader(Buffer.from([0x02, 0x02, 0x7f, 0xff]))
+			assert.equal(reader.readInt(), 32767)
+			assert.equal(reader.length, 2)
+		})
+
+		it("can read a 3 byte positive integer - lowest", function() {
+			var reader = new BerReader(Buffer.from([0x02, 0x03, 0x00, 0x80, 0x00]))
+			assert.equal(reader.readInt(), 32768)
+			assert.equal(reader.length, 3)
+		})
+
+		it("can read a 3 byte positive integer - middle", function() {
+			var reader = new BerReader(Buffer.from([0x02, 0x03, 0x7e, 0xde, 0x03]))
+			assert.equal(reader.readInt(), 8314371)
+			assert.equal(reader.length, 3)
+		})
+
+		it("can read a 3 byte positive integer - highest", function() {
 			var reader = new BerReader(Buffer.from([0x02, 0x03, 0x7e, 0xde, 0x03]))
 			assert.equal(reader.readInt(), 0x7ede03)
 			assert.equal(reader.length, 0x03)
 		})
 
-		it("can read a 4 byte integer", function() {
-			var reader = new BerReader(Buffer.from([0x02, 0x04, 0x7e, 0xde, 0x03, 0x01]))
-			assert.equal(reader.readInt(), 0x7ede0301)
-			assert.equal(reader.length, 0x04)
+		it("can read a 4 byte positive integer - lowest", function() {
+			var reader = new BerReader(Buffer.from([0x02, 0x04, 0x00, 0x80, 0x00, 0x00]))
+			assert.equal(reader.readInt(), 8388608)
+			assert.equal(reader.length, 4)
 		})
 
-		it("can read a 1 byte unsigned integer", function() {
+		it("can read a 4 byte positive integer - middle", function() {
+			var reader = new BerReader(Buffer.from([0x02, 0x04, 0x7e, 0xde, 0x03, 0x01]))
+			assert.equal(reader.readInt(), 2128478977)
+			assert.equal(reader.length, 4)
+		})
+
+		it("can read a 4 byte positive integer - highest", function() {
+			var reader = new BerReader(Buffer.from([0x02, 0x04, 0x7f, 0xff, 0xff, 0xff]))
+			assert.equal(reader.readInt(), 2147483647)
+			assert.equal(reader.length, 4)
+		})
+
+		it("can read a 5 byte positive integer - lowest", function() {
+			var reader = new BerReader(Buffer.from([0x02, 0x05, 0x00, 0x80, 0x00, 0x00, 0x00]))
+			assert.equal(reader.readInt(), 2147483648)
+			assert.equal(reader.length, 5)
+		})
+
+		it("can read a 5 byte positive integer - middle", function() {
+			var reader = new BerReader(Buffer.from([0x02, 0x05, 0x00, 0x8b, 0xde, 0x03, 0x01]))
+			assert.equal(reader.readInt(), 2346582785)
+			assert.equal(reader.length, 5)
+		})
+
+		it("can read a 5 byte positive integer - highest", function() {
+			var reader = new BerReader(Buffer.from([0x02, 0x05, 0x00, 0xff, 0xff, 0xff, 0xff]))
+			assert.equal(reader.readInt(), 4294967295)
+			assert.equal(reader.length, 5)
+		})
+
+		it("can read a 1 byte negative integer - lowest", function() {
+			var reader = new BerReader(Buffer.from([0x02, 0x01, 0x80]))
+			assert.equal(reader.readInt(), -128)
+			assert.equal(reader.length, 1)
+		})
+
+		it("can read a 1 byte negative integer - middle", function() {
 			var reader = new BerReader(Buffer.from([0x02, 0x01, 0xdc]))
 			assert.equal(reader.readInt(), -36)
-			assert.equal(reader.length, 0x01)
+			assert.equal(reader.length, 1)
 		})
 
-		it("can read a 2 byte unsigned integer", function() {
+		it("can read a 1 byte negative integer - highest", function() {
+			var reader = new BerReader(Buffer.from([0x02, 0x01, 0xff]))
+			assert.equal(reader.readInt(), -1)
+			assert.equal(reader.length, 1)
+		})
+
+		it("can read a 2 byte negative integer - lowest", function() {
+			var reader = new BerReader(Buffer.from([0x02, 0x02, 0x80, 0x00]))
+			assert.equal(reader.readInt(), -32768)
+			assert.equal(reader.length, 2)
+		})
+
+		it("can read a 2 byte negative integer - middle", function() {
 			var reader = new BerReader(Buffer.from([0x02, 0x02, 0xc0, 0x4e]))
 			assert.equal(reader.readInt(), -16306)
-			assert.equal(reader.length, 0x02)
+			assert.equal(reader.length, 2)
 		})
 
+		it("can read a 2 byte negative integer - highest", function() {
+			var reader = new BerReader(Buffer.from([0x02, 0x02, 0xff, 0x7f]))
+			assert.equal(reader.readInt(), -129)
+			assert.equal(reader.length, 2)
+		})
 
-		it("can read a 3 byte unsigned integer", function() {
+		it("can read a 3 byte negative integer - lowest", function() {
+			var reader = new BerReader(Buffer.from([0x02, 0x03, 0x80, 0x00, 0x00]))
+			assert.equal(reader.readInt(), -8388608)
+			assert.equal(reader.length, 3)
+		})
+
+		it("can read a 3 byte negative integer - middle", function() {
 			var reader = new BerReader(Buffer.from([0x02, 0x03, 0xff, 0x00, 0x19]))
 			assert.equal(reader.readInt(), -65511)
-			assert.equal(reader.length, 0x03)
+			assert.equal(reader.length, 3)
 		})
 
+		it("can read a 3 byte negative integer - highest", function() {
+			var reader = new BerReader(Buffer.from([0x02, 0x03, 0xff, 0x7f, 0xff]))
+			assert.equal(reader.readInt(), -32769)
+			assert.equal(reader.length, 3)
+		})
 
-		it("can read a 4 byte unsigned integer", function() {
+		it("can read a 4 byte negative integer - lowest", function() {
+			var reader = new BerReader(Buffer.from([0x02, 0x04, 0x80, 0x00, 0x00, 0x00]))
+			assert.equal(reader.readInt(), -2147483648)
+			assert.equal(reader.length, 4)
+		})
+
+		it("can read a 4 byte negative integer - middle", function() {
 			var reader = new BerReader(Buffer.from([0x02, 0x04, 0x91, 0x7c, 0x22, 0x1f]))
 			assert.equal(reader.readInt(), -1854135777)
-			assert.equal(reader.length, 0x04)
+			assert.equal(reader.length, 4)
+		})
+
+		it("can read a 4 byte negative integer - highest", function() {
+			var reader = new BerReader(Buffer.from([0x02, 0x04, 0xff, 0x7f, 0xff, 0xff]))
+			assert.equal(reader.readInt(), -8388609)
+			assert.equal(reader.length, 4)
 		})
 	})
 

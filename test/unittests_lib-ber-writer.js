@@ -4,7 +4,7 @@ var assert = require("assert")
 
 var BerWriter = asn1.BerWriter
 
-describe.only("lib/ber/writer.js", function() {
+describe("lib/ber/writer.js", function() {
 	describe("writeByte()", function() {
 		it("can write a value", function() {
 			var writer = new BerWriter()

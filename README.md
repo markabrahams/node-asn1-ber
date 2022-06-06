@@ -560,6 +560,10 @@ instance:
 
  * Fix zero-length octet string buffer writing
 
+## Version 1.1.3 - 07/06/2022
+
+ * Fix 5-byte integer encoding and decoding
+
 # License
 
 Copyright (c) 2020 Mark Abrahams <mark@abrahams.co.nz>
