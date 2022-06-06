@@ -3,12 +3,15 @@
   "version": "1.1.2",
   "description": "Generate and parse ASN1.BER objects",
   "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
   "directories": {},
   "dependencies": {},
   "devDependencies": {
-    "tap": "*"
+    "mocha": "^10.0.0"
   },
-  "contributors": [ 
+  "contributors": [
     {
       "name": "Stephen Vickers",
       "email": "stephen.vickers@nospaceships.com"
