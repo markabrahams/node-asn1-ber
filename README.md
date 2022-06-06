@@ -564,6 +564,10 @@ instance:
 
  * Fix 5-byte integer encoding and decoding
 
+## Version 1.1.4 - 07/06/2022
+
+ * Remove modulo 2^32 on reading integers
+
 # License
 
 Copyright (c) 2020 Mark Abrahams <mark@abrahams.co.nz>
