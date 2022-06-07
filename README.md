@@ -568,6 +568,10 @@ instance:
 
  * Remove modulo 2^32 on reading integers
 
+## Version 1.2.0 - 07/06/2022
+
+ * Allow no tag check on reading integers
+
 # License
 
 Copyright (c) 2020 Mark Abrahams <mark@abrahams.co.nz>
