@@ -576,6 +576,10 @@ instance:
 
  * Add bit string reading
 
+## Version 1.2.2 - 07/06/2022
+
+ * Improve writeInt() function
+
 # License
 
 Copyright (c) 2020 Mark Abrahams <mark@abrahams.co.nz>
