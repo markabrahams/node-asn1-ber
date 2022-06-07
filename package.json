@@ -1,6 +1,6 @@
 {
   "name": "asn1-ber",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Generate and parse ASN1.BER objects",
   "main": "index.js",
   "scripts": {

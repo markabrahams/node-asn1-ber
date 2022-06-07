@@ -238,6 +238,14 @@ describe("lib/ber/reader.js", function() {
 		})
 	})
 
+	describe("readBitString()", function() {
+		it("can read a bit string", function() {
+			var reader = new BerReader(Buffer.from([0x03, 0x07, 0x04, 0x0a, 0x3b, 0x5f, 0x29, 0x1c, 0xd0]))
+			assert.equal(reader.readBitString(), '00001010001110110101111100101001000111001101')
+			assert.equal(reader.length, 7)
+		})
+	})
+
 	describe("complex sequences", function() {
 		it("are processed correctly", function() {
 			var buffer = Buffer.alloc(14);

@@ -572,6 +572,10 @@ instance:
 
  * Allow no tag check on reading integers
 
+## Version 1.2.1 - 07/06/2022
+
+ * Add bit string reading
+
 # License
 
 Copyright (c) 2020 Mark Abrahams <mark@abrahams.co.nz>
