@@ -1,16 +1,13 @@
-
-var asn1 = require("../lib")
-var assert = require("chai").assert;
-
-var BerWriter = asn1.BerWriter
+import { assert } from 'chai';
+import Writer from './writer';
 
 describe("lib/ber/writer.js", function() {
 	describe("writeByte()", function() {
 		it("can write a value", function() {
-			var writer = new BerWriter()
+			const writer = new Writer()
 			writer.writeByte(0xC2)
 
-			var buffer = writer.buffer
+			const buffer = writer.buffer
 
 			assert.equal(buffer.length, 1)
 			assert.equal(buffer[0], 0xc2)
@@ -19,10 +16,10 @@ describe("lib/ber/writer.js", function() {
 
 	describe("writeInt()", function() {
 		it("can write zero", function() {
-			var writer = new BerWriter()
+			const writer = new Writer()
 			writer.writeInt(0)
 
-			var buffer = writer.buffer
+			const buffer = writer.buffer
 
 			assert.equal(buffer.length, 3)
 			assert.equal(buffer[0], 0x02)
@@ -31,10 +28,10 @@ describe("lib/ber/writer.js", function() {
 		})
 
 		it("can write 1 byte positive integers - lowest", function() {
-			var writer = new BerWriter()
+			const writer = new Writer()
 			writer.writeInt(1)
 
-			var buffer = writer.buffer
+			const buffer = writer.buffer
 
 			assert.equal(buffer.length, 3)
 			assert.equal(buffer[0], 0x02)
@@ -43,10 +40,10 @@ describe("lib/ber/writer.js", function() {
 		})
 
 		it("can write 1 byte positive integers - middle", function() {
-			var writer = new BerWriter()
+			const writer = new Writer()
 			writer.writeInt(101)
 
-			var buffer = writer.buffer
+			const buffer = writer.buffer
 
 			assert.equal(buffer.length, 3)
 			assert.equal(buffer[0], 0x02)
@@ -55,10 +52,10 @@ describe("lib/ber/writer.js", function() {
 		})
 
 		it("can write 1 byte positive integers - highest", function() {
-			var writer = new BerWriter()
+			const writer = new Writer()
 			writer.writeInt(127)
 
-			var buffer = writer.buffer
+			const buffer = writer.buffer
 
 			assert.equal(buffer.length, 3)
 			assert.equal(buffer[0], 0x02)
@@ -67,10 +64,10 @@ describe("lib/ber/writer.js", function() {
 		})
 
 		it("can write 2 byte positive integers - lowest", function() {
-			var writer = new BerWriter()
+			const writer = new Writer()
 			writer.writeInt(128)
 
-			var buffer = writer.buffer
+			const buffer = writer.buffer
 
 			assert.equal(buffer.length, 4)
 			assert.equal(buffer[0], 0x02)
@@ -80,10 +77,10 @@ describe("lib/ber/writer.js", function() {
 		})
 
 		it("can write 2 byte positive integers - middle", function() {
-			var writer = new BerWriter()
+			const writer = new Writer()
 			writer.writeInt(9374)
 
-			var buffer = writer.buffer
+			const buffer = writer.buffer
 
 			assert.equal(buffer.length, 4)
 			assert.equal(buffer[0], 0x02)
@@ -93,10 +90,10 @@ describe("lib/ber/writer.js", function() {
 		})
 
 		it("can write 2 byte positive integers - highest", function() {
-			var writer = new BerWriter()
+			const writer = new Writer()
 			writer.writeInt(32767)
 
-			var buffer = writer.buffer
+			const buffer = writer.buffer
 
 			assert.equal(buffer.length, 4)
 			assert.equal(buffer[0], 0x02)
@@ -106,10 +103,10 @@ describe("lib/ber/writer.js", function() {
 		})
 
 		it("can write 3 byte positive integers - lowest", function() {
-			var writer = new BerWriter()
+			const writer = new Writer()
 			writer.writeInt(32768)
 
-			var buffer = writer.buffer
+			const buffer = writer.buffer
 
 			assert.equal(buffer.length, 5)
 			assert.equal(buffer[0], 0x02)
@@ -120,10 +117,10 @@ describe("lib/ber/writer.js", function() {
 		})
 
 		it("can write 3 byte positive integers - middle", function() {
-			var writer = new BerWriter()
+			const writer = new Writer()
 			writer.writeInt(5938243)
 
-			var buffer = writer.buffer
+			const buffer = writer.buffer
 
 			assert.equal(buffer.length, 5)
 			assert.equal(buffer[0], 0x02)
@@ -134,10 +131,10 @@ describe("lib/ber/writer.js", function() {
 		})
 
 		it("can write 3 byte positive integers - highest", function() {
-			var writer = new BerWriter()
+			const writer = new Writer()
 			writer.writeInt(8388607)
 
-			var buffer = writer.buffer
+			const buffer = writer.buffer
 
 			assert.equal(buffer.length, 5)
 			assert.equal(buffer[0], 0x02)
@@ -148,10 +145,10 @@ describe("lib/ber/writer.js", function() {
 		})
 
 		it("can write 4 byte positive integers - lowest", function() {
-			var writer = new BerWriter()
+			const writer = new Writer()
 			writer.writeInt(8388608)
 
-			var buffer = writer.buffer
+			const buffer = writer.buffer
 
 			assert.equal(buffer.length, 6)
 			assert.equal(buffer[0], 0x02)
@@ -163,10 +160,10 @@ describe("lib/ber/writer.js", function() {
 		})
 
 		it("can write 4 byte positive integers - middle", function() {
-			var writer = new BerWriter()
+			const writer = new Writer()
 			writer.writeInt(1483722690)
 
-			var buffer = writer.buffer
+			const buffer = writer.buffer
 
 			assert.equal(buffer.length, 6)
 			assert.equal(buffer[0], 0x02)
@@ -178,10 +175,10 @@ describe("lib/ber/writer.js", function() {
 		})
 
 		it("can write 4 byte positive integers - highest", function() {
-			var writer = new BerWriter()
+			const writer = new Writer()
 			writer.writeInt(2147483647)
 
-			var buffer = writer.buffer
+			const buffer = writer.buffer
 
 			assert.equal(buffer.length, 6)
 			assert.equal(buffer[0], 0x02)
@@ -193,10 +190,10 @@ describe("lib/ber/writer.js", function() {
 		})
 
 		it("can write 5 byte positive integers - lowest", function() {
-			var writer = new BerWriter()
+			const writer = new Writer()
 			writer.writeInt(2147483648)
 
-			var buffer = writer.buffer
+			const buffer = writer.buffer
 
 			assert.equal(buffer.length, 7)
 			assert.equal(buffer[0], 0x02)
@@ -209,10 +206,10 @@ describe("lib/ber/writer.js", function() {
 		})
 
 		it("can write 5 byte positive integers - middle", function() {
-			var writer = new BerWriter()
+			const writer = new Writer()
 			writer.writeInt(3843548325)
 
-			var buffer = writer.buffer
+			const buffer = writer.buffer
 
 			assert.equal(buffer.length, 7)
 			assert.equal(buffer[0], 0x02)
@@ -225,10 +222,10 @@ describe("lib/ber/writer.js", function() {
 		})
 
 		it("can write 5 byte positive integers - highest", function() {
-			var writer = new BerWriter()
+			const writer = new Writer()
 			writer.writeInt(4294967295)
 
-			var buffer = writer.buffer
+			const buffer = writer.buffer
 
 			assert.equal(buffer.length, 7)
 			assert.equal(buffer[0], 0x02)
@@ -241,10 +238,10 @@ describe("lib/ber/writer.js", function() {
 		})
 
 		it("can write 1 byte negative integers - lowest", function() {
-			var writer = new BerWriter()
+			const writer = new Writer()
 			writer.writeInt(-128)
 
-			var buffer = writer.buffer
+			const buffer = writer.buffer
 
 			assert.equal(buffer.length, 3)
 			assert.equal(buffer[0], 0x02)
@@ -253,10 +250,10 @@ describe("lib/ber/writer.js", function() {
 		})
 
 		it("can write 1 byte negative integers - middle", function() {
-			var writer = new BerWriter()
+			const writer = new Writer()
 			writer.writeInt(-73)
 
-			var buffer = writer.buffer
+			const buffer = writer.buffer
 
 			assert.equal(buffer.length, 3)
 			assert.equal(buffer[0], 0x02)
@@ -265,10 +262,10 @@ describe("lib/ber/writer.js", function() {
 		})
 
 		it("can write 1 byte negative integers - highest", function() {
-			var writer = new BerWriter()
+			const writer = new Writer()
 			writer.writeInt(-1)
 
-			var buffer = writer.buffer
+			const buffer = writer.buffer
 
 			assert.equal(buffer.length, 3)
 			assert.equal(buffer[0], 0x02)
@@ -277,10 +274,10 @@ describe("lib/ber/writer.js", function() {
 		})
 
 		it("can write 2 byte negative integers - lowest", function() {
-			var writer = new BerWriter()
+			const writer = new Writer()
 			writer.writeInt(-32768)
 
-			var buffer = writer.buffer
+			const buffer = writer.buffer
 
 			assert.equal(buffer.length, 4)
 			assert.equal(buffer[0], 0x02)
@@ -290,10 +287,10 @@ describe("lib/ber/writer.js", function() {
 		})
 
 		it("can write 2 byte negative integers - middle", function() {
-			var writer = new BerWriter()
+			const writer = new Writer()
 			writer.writeInt(-22400)
 
-			var buffer = writer.buffer
+			const buffer = writer.buffer
 
 			assert.equal(buffer.length, 4)
 			assert.equal(buffer[0], 0x02)
@@ -303,10 +300,10 @@ describe("lib/ber/writer.js", function() {
 		})
 
 		it("can write 2 byte negative integers - highest", function() {
-			var writer = new BerWriter()
+			const writer = new Writer()
 			writer.writeInt(-129)
 
-			var buffer = writer.buffer
+			const buffer = writer.buffer
 
 			assert.equal(buffer.length, 4)
 			assert.equal(buffer[0], 0x02)
@@ -316,10 +313,10 @@ describe("lib/ber/writer.js", function() {
 		})
 
 		it("can write 3 byte negative integers - lowest", function() {
-			var writer = new BerWriter()
+			const writer = new Writer()
 			writer.writeInt(-8388608)
 
-			var buffer = writer.buffer
+			const buffer = writer.buffer
 
 			assert.equal(buffer.length, 5)
 			assert.equal(buffer[0], 0x02)
@@ -330,10 +327,10 @@ describe("lib/ber/writer.js", function() {
 		})
 
 		it("can write 3 byte negative integers - middle", function() {
-			var writer = new BerWriter()
+			const writer = new Writer()
 			writer.writeInt(-481653)
 
-			var buffer = writer.buffer
+			const buffer = writer.buffer
 
 			assert.equal(buffer.length, 5)
 			assert.equal(buffer[0], 0x02)
@@ -344,10 +341,10 @@ describe("lib/ber/writer.js", function() {
 		})
 
 		it("can write 3 byte negative integers - highest", function() {
-			var writer = new BerWriter()
+			const writer = new Writer()
 			writer.writeInt(-32769)
 
-			var buffer = writer.buffer
+			const buffer = writer.buffer
 
 			assert.equal(buffer.length, 5)
 			assert.equal(buffer[0], 0x02)
@@ -358,10 +355,10 @@ describe("lib/ber/writer.js", function() {
 		})
 
 		it("can write 4 byte negative integers - lowest", function() {
-			var writer = new BerWriter()
+			const writer = new Writer()
 			writer.writeInt(-2147483648)
 
-			var buffer = writer.buffer
+			const buffer = writer.buffer
 
 			assert.equal(buffer.length, 6)
 			assert.equal(buffer[0], 0x02)
@@ -373,10 +370,10 @@ describe("lib/ber/writer.js", function() {
 		})
 
 		it("can write 4 byte negative integers - middle", function() {
-			var writer = new BerWriter()
+			const writer = new Writer()
 			writer.writeInt(-1522904131)
 
-			var buffer = writer.buffer
+			const buffer = writer.buffer
 
 			assert.equal(buffer.length, 6)
 			assert.equal(buffer[0], 0x02)
@@ -388,10 +385,10 @@ describe("lib/ber/writer.js", function() {
 		})
 
 		it("can write 4 byte negative integers - highest", function() {
-			var writer = new BerWriter()
+			const writer = new Writer()
 			writer.writeInt(-8388609)
 
-			var buffer = writer.buffer
+			const buffer = writer.buffer
 
 			assert.equal(buffer.length, 6)
 			assert.equal(buffer[0], 0x02)
@@ -405,11 +402,11 @@ describe("lib/ber/writer.js", function() {
 
 	describe("writeBoolean()", function() {
 		it("can write a true and false value", function() {
-			var writer = new BerWriter()
+			const writer = new Writer()
 			writer.writeBoolean(true)
 			writer.writeBoolean(false)
 
-			var buffer = writer.buffer
+			const buffer = writer.buffer
 
 			assert.equal(buffer.length, 6)
 			assert.equal(buffer[0], 0x01)
@@ -423,10 +420,10 @@ describe("lib/ber/writer.js", function() {
 
 	describe("writeString()", function() {
 		it("can write a value", function() {
-			var writer = new BerWriter()
+			const writer = new Writer()
 			writer.writeString("hello world")
 
-			var buffer = writer.buffer
+			const buffer = writer.buffer
 
 			assert.equal(buffer.length, 13)
 			assert.equal(buffer[0], 0x04)
@@ -437,82 +434,82 @@ describe("lib/ber/writer.js", function() {
 
 	describe("writeBuffer()", function() {
 		it("can write a value", function() {
-			var writer = new BerWriter()
+			const writer = new Writer()
 			writer.writeString("hello world")
 
-			var expected = Buffer.from([
+			const expected = Buffer.from([
 					0x04, 0x0b, 0x30, 0x09, 0x02, 0x01, 0x0f, 0x01,
 					0x01, 0xff, 0x01, 0x01, 0xff
 				])
 			writer.writeBuffer(expected.slice(2, expected.length), 0x04)
 			
-			buffer = writer.buffer;
+			const buffer = writer.buffer;
 
 			assert.equal(buffer.length, 26)
 			assert.equal(buffer[0], 0x04)
 			assert.equal(buffer[1], 11)
-			assert.equal(buffer.slice(2, 13).toString("utf8"), "hello world")
+			assert.equal(buffer.subarray(2, 13).toString("utf8"), "hello world")
 			assert.equal(buffer[13], expected[0])
 			assert.equal(buffer[14], expected[1])
 
-			for (var i = 13, j = 0; i < buffer.length && j < expected.length; i++, j++)
+			for (let i = 13, j = 0; i < buffer.length && j < expected.length; i++, j++)
 				assert.equal(buffer[i], expected[j])
 		})
 	})
 
 	describe("writeStringArray()", function() {
 		it("can write an array of strings", function() {
-			var writer = new BerWriter()
+			const writer = new Writer()
 			writer.writeStringArray(["hello world", "fubar!"])
 
-			var buffer = writer.buffer
+			const buffer = writer.buffer
 
 			assert.equal(buffer.length, 21)
 			assert.equal(buffer[0], 0x04)
 			assert.equal(buffer[1], 11)
-			assert.equal(buffer.slice(2, 13).toString("utf8"), "hello world")
+			assert.equal(buffer.subarray(2, 13).toString("utf8"), "hello world")
 
 			assert.equal(buffer[13], 0x04)
 			assert.equal(buffer[14], 6)
-			assert.equal(buffer.slice(15).toString("utf8"), "fubar!")
+			assert.equal(buffer.subarray(15).toString("utf8"), "fubar!")
 		})
 	})
 
 	describe("oversized data", function() {
 		it("results in a buffer resize", function() {
-			var writer = new BerWriter({size: 2})
+			const writer = new Writer({size: 2})
 			writer.writeString("hello world")
 
-			var buffer = writer.buffer
+			const buffer = writer.buffer
 
 			assert.equal(buffer.length, 13)
 			assert.equal(buffer[0], 0x04)
 			assert.equal(buffer[1], 11)
-			assert.equal(buffer.slice(2).toString("utf8"), "hello world")
+			assert.equal(buffer.subarray(2).toString("utf8"), "hello world")
 		})
 	})
 
 	describe("complex sequences", function() {
 		it("are processed correctly", function() {
-			var writer = new BerWriter({size: 25})
+			const writer = new Writer({size: 25})
 			writer.startSequence()
 			writer.writeString("hello world")
 			writer.endSequence()
 
-			var buffer = writer.buffer
+			const buffer = writer.buffer
 
 			assert.equal(buffer.length, 15)
 			assert.equal(buffer[0], 0x30)
 			assert.equal(buffer[1], 13)
 			assert.equal(buffer[2], 0x04)
 			assert.equal(buffer[3], 11)
-			assert.equal(buffer.slice(4).toString("utf8"), "hello world")
+			assert.equal(buffer.subarray(4).toString("utf8"), "hello world")
 		})
 	})
 
 	describe("nested sequences", function() {
 		it("are processed correctly", function() {
-			var writer = new BerWriter({size: 25})
+			const writer = new Writer({size: 25})
 			writer.startSequence()
 			writer.writeString("hello world")
 			writer.startSequence()
@@ -520,29 +517,29 @@ describe("lib/ber/writer.js", function() {
 			writer.endSequence()
 			writer.endSequence()
 
-			var buffer = writer.buffer
+			const buffer = writer.buffer
 
 			assert.equal(buffer.length, 30)
 			assert.equal(buffer[0], 0x30)
 			assert.equal(buffer[1], 28)
 			assert.equal(buffer[2], 0x04)
 			assert.equal(buffer[3], 11)
-			assert.equal(buffer.slice(4, 15).toString("utf8"), "hello world")
+			assert.equal(buffer.subarray(4, 15).toString("utf8"), "hello world")
 
 			assert.equal(buffer[15], 0x30)
 			assert.equal(buffer[16], 13)
 			assert.equal(buffer[17], 0x04)
 			assert.equal(buffer[18], 11)
-			assert.equal(buffer.slice(19, 30).toString("utf8"), "hello world")
+			assert.equal(buffer.subarray(19, 30).toString("utf8"), "hello world")
 		})
 	})
 
 	describe("multiple sequences", function() {
 		it("are processed correctly", function() {
 			// An anonymous LDAP v3 BIND request
-			var dn = "cn=foo,ou=unit,o=test"
+			const dn = "cn=foo,ou=unit,o=test"
 
-			var writer = new BerWriter()
+			const writer = new Writer()
 			writer.startSequence()
 			writer.writeInt(3)
 			writer.startSequence(0x60)
@@ -553,7 +550,7 @@ describe("lib/ber/writer.js", function() {
 			writer.endSequence()
 			writer.endSequence()
 
-			var buffer = writer.buffer
+			const buffer = writer.buffer
 
 			assert.equal(buffer.length, 35)
 			assert.equal(buffer[0], 0x30)
@@ -568,7 +565,7 @@ describe("lib/ber/writer.js", function() {
 			assert.equal(buffer[9], 0x03)
 			assert.equal(buffer[10], 0x04)
 			assert.equal(buffer[11], dn.length)
-			assert.equal(buffer.slice(12, 33).toString("utf8"), dn)
+			assert.equal(buffer.subarray(12, 33).toString("utf8"), dn)
 			assert.equal(buffer[33], 0x80)
 			assert.equal(buffer[34], 0x00)
 		})
@@ -576,10 +573,10 @@ describe("lib/ber/writer.js", function() {
 
 	describe("writeOID()", function() {
 		it("can write a value", function() {
-			var writer = new BerWriter()
+			const writer = new Writer()
 			writer.writeOID("1.2.840.113549.1.1.1")
 
-			var buffer = writer.buffer
+			const buffer = writer.buffer
 
 			assert.equal(buffer.toString("hex"), "06092a864886f70d010101")
 		})

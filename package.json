@@ -1,15 +1,23 @@
 {
   "name": "asn1-ber",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "Generate and parse ASN1.BER objects",
-  "main": "index.js",
+  "main": "./lib/index.js",
+  "types":"./lib/index.d.ts",
   "scripts": {
-    "test": "mocha"
+    "test:ts": "mocha --bail --require ts-node/register src/**/*.spec.ts",
+    "test": "npm run build && mocha --bail",
+    "build": "tsc"
   },
   "directories": {},
-  "dependencies": {},
   "devDependencies": {
-    "mocha": "^10.0.0"
+    "@types/chai": "^4.3.5",
+    "@types/mocha": "^10.0.1",
+    "@types/node": "^20.2.5",
+    "chai": "^4.3.7",
+    "mocha": "^10.0.0",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.0.4"
   },
   "contributors": [
     {
