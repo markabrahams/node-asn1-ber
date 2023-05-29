@@ -580,6 +580,12 @@ instance:
 
  * Improve writeInt() function
 
+## Version 1.2.3 - 29/05/2023
+
+ * Refactor into Typescript
+ * Add chai for assert functionality
+ * Add typescript types
+
 # License
 
 Copyright (c) 2020 Mark Abrahams <mark@abrahams.co.nz>
