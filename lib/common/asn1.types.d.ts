@@ -31,3 +31,7 @@ export declare enum E_ASN1_TYPES {
     CONSTRUCTOR = 32,
     CONTEXT = 128
 }
+export type BER_ASN1_TYPES = {
+    [key: string]: E_ASN1_TYPES;
+};
+export declare const BER_ASN1_TYPES: BER_ASN1_TYPES;
