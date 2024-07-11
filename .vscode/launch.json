@@ -1,11 +1,22 @@
 {
-    // Use IntelliSense to learn about possible attributes.
-    // Hover to view descriptions of existing attributes.
-    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
         {
-            "type": "pwa-node",
+            "name": "ts-node",
+            "type": "node",
+            "request": "launch",
+            "args": [
+                "${file}"
+            ],
+            "runtimeArgs": [
+                "-r",
+                "ts-node/register"
+            ],
+            "cwd": "${workspaceFolder}",
+            "internalConsoleOptions": "openOnSessionStart"
+        },
+        {
+            "type": "node",
             "request": "launch",
             "name": "Launch Program",
             "skipFiles": [
@@ -19,21 +30,14 @@
             "name": "Mocha Tests",
             "program": "${workspaceFolder}/node_modules/mocha/bin/_mocha",
             "args": [
-            //   "--require",
-            //   "esm",
-            //   "--require",
-            //   "${workspaceFolder}/test/your-setup.js",
-            //   "--reporter",
-            //   "dot",
-              "--slow",
-              "5000",
-              "--colors",
-              "${workspaceFolder}/test/**/*.js",
-      
+                "--slow",
+                "5000",
+                "--colors",
+                "${workspaceFolder}/test/**/*.js"
             ],
             "internalConsoleOptions": "openOnSessionStart",
             "skipFiles": [
-              "<node_internals>/**"
+                "<node_internals>/**"
             ]
         }
     ]

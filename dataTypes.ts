@@ -1,5 +1,4 @@
-
-module.exports = {
+export const ASN1 = {
 	EOC: 0,
 	Boolean: 1,
 	Integer: 2,

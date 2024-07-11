@@ -1,6 +1,7 @@
-
-var asn1 = require("../")
+var asn1 = require("../dist/index.js")
 var assert = require("assert")
+var describe = require("node:test").describe;
+var it = require("node:test").it;
 
 var BerWriter = asn1.BerWriter
 

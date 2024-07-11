@@ -580,6 +580,9 @@ instance:
 
  * Improve writeInt() function
 
+## Version 1.2.3 - 11/07/2024
+ * Change to typescript
+
 # License
 
 Copyright (c) 2020 Mark Abrahams <mark@abrahams.co.nz>

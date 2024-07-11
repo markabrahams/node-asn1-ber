@@ -1,15 +1,17 @@
 {
   "name": "asn1-ber",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "Generate and parse ASN1.BER objects",
-  "main": "index.js",
+  "main": "./dist/index.js",
   "scripts": {
     "test": "mocha"
   },
   "directories": {},
-  "dependencies": {},
   "devDependencies": {
-    "mocha": "^10.0.0"
+    "@types/node": "^20.14.10",
+    "mocha": "^10.0.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.5.3"
   },
   "contributors": [
     {
@@ -23,6 +25,10 @@
     {
       "name": "Mark Abrahams",
       "email": "mark@abrahams.co.nz"
+    },
+    {
+      "name": "Augusto Sigolo",
+      "email": "augustoasigolo@gmail.com"
     }
   ],
   "repository": {
